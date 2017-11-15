@@ -1,7 +1,7 @@
-console.log('script is linked.');
-console.log('script is linked.');
-console.log('script is linked.');
-console.log('script is linked.');
-console.log('script is linked.');
-console.log('script is linked.');
-console.log('script is linked.');
+console.log('I come from main.js');
+console.log('I come from main.js');
+console.log('I come from main.js');
+console.log('I come from main.js');
+console.log('I come from main.js');
+console.log('I come from main.js');
+console.log('I come from main.js');
