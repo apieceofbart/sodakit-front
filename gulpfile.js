@@ -16,7 +16,7 @@ var imagemin = require('gulp-imagemin');
 
 var dev = 'dev', dist = 'dist';
 
-gulp.task('html', function(){
+gulp.task('html', function () {
   return gulp.src(dev + '/html/index.pug')
     .pipe(sourcemaps.init()) //
     .pipe(pug())
@@ -28,7 +28,7 @@ gulp.task('html', function(){
     .pipe(gulp.dest(dist))
 });
 
-gulp.task('css', function(){
+gulp.task('css', function () {
   return gulp.src(dev + '/styles/*.sass')
     .pipe(sourcemaps.init())
     .pipe(sass())
@@ -63,27 +63,27 @@ gulp.task('js', () =>
       this.emit('end');
     })
     .pipe(concat('main.js'))
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dist + '/scripts'))
 );
 
-gulp.task('imagemin', function(){
+gulp.task('imagemin', function () {
   return gulp.src(dev + '/images/*')
     .pipe(imagemin({
       interlaced: true,
       progressive: true,
       optimizationLevel: 5,
-      svgoPlugins: [{removeViewBox: true}]
+      svgoPlugins: [{ removeViewBox: true }]
     }))
     .pipe(gulp.dest(dist + '/images'));
 });
 
-gulp.task('default', [ 'html', 'css', 'js', 'watch']);
+gulp.task('default', ['html', 'css', 'js', 'watch']);
 
-gulp.task('build', [ 'html', 'css', 'js', 'imagemin']);
+gulp.task('build', ['html', 'css', 'js', 'imagemin']);
 
-gulp.task('watch', function(){
+gulp.task('watch', function () {
   gulp.watch(dev + '/html/*.pug', ['html']);
   gulp.watch(dev + '/styles/*.sass', ['css']);
   gulp.watch(dev + '/scripts/*.js', ['js']);
