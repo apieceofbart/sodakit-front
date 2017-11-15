@@ -62,8 +62,8 @@ gulp.task('js', () =>
       console.log(err.toString());
       this.emit('end');
     })
-    .pipe(concat('main.js'))
-    .pipe(uglify())
+    .pipe(concat('bundle.js'))
+    //.pipe(uglify())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dist + '/scripts'))
 );
