@@ -63,7 +63,7 @@ gulp.task('js', () =>
       this.emit('end');
     })
     .pipe(concat('bundle.js'))
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dist + '/scripts'))
 );
